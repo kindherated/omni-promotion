@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.drools.org/xsd/kmodule">
+
+<!--    <kbase name="rule1KB" packages="com.purcotton.engine.rule.rule1">-->
+<!--        <ksession name="rule1KS"/>-->
+<!--    </kbase>-->
+
+<!--    <kbase name="rule2KB" packages="com.purcotton.engine.rule.rule2">-->
+<!--        <ksession name="rule2KS"/>-->
+<!--    </kbase>-->
+
+<!--    <kbase name="mingKB" packages="com.purcotton.engine.rule.complexProblem">-->
+<!--        <ksession name="mingKS"/>-->
+<!--    </kbase>-->
+
+<!--    <kbase name="worldKB" packages="com.purcotton.engine.rule.complexProblem">-->
+<!--        <ksession name="worldKS"/>-->
+<!--    </kbase>-->
+
+<!--    <kbase name="HonestPoliticianKB" packages="com.purcotton.engine.rule.honestpolitician">-->
+<!--        <ksession name="HonestPoliticianKS"/>-->
+<!--    </kbase>-->
+<!--    <kbase name="cheeseKB" packages="template">-->
+<!--        <ruleTemplate dtable="template/ExampleCheese.xls"-->
+<!--                      template="template/Cheese.drt"-->
+<!--                      row="2" col="2"/>-->
+<!--        <ksession name="chessKs"/>-->
+<!--    </kbase>-->
+<!--    <kbase name="TemplatesKB" packages="template">-->
+<!--        <ruleTemplate dtable="template/template.xlsx"-->
+<!--                      template="template/template.drt"-->
+<!--                      row="2" col="1"/>-->
+<!--        <ksession name="TemplatesKS"/>-->
+<!--    </kbase>-->
+
+</kmodule>

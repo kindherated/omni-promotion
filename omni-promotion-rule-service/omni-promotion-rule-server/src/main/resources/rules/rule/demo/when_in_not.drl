@@ -1,0 +1,18 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.School;
+import com.purcotton.omni.promotion.rule.bean.Student;
+rule "rule1"
+when
+   School($cn:className)
+   s:Student(className in($cn))
+then
+   System.out.println("when条件in的测试："+s.getName());
+end
+
+rule "rule2"
+when
+   School($cn:className)
+   s:Student(className not in($cn))
+then
+   System.out.println("when条件not in的测试:"+s.getName());
+end

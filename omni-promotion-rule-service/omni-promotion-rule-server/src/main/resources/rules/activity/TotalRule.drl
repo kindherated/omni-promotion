@@ -1,0 +1,13 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Employ;;
+  
+rule"Total"  
+  ruleflow-group"sum_salary"  
+when  
+   emp: Employ()  
+then  
+   System.out.println("execrule Total ... ");  
+   double total =emp.getBasicSalary() + emp.getDutySalary() +  
+                 emp.getBonus();                                 
+   emp.setTotalSalary(total*emp.getPercent());  
+end  

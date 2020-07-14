@@ -1,0 +1,38 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Employ;;
+  
+rule"Excellent"  
+      ruleflow-group"bonus_salary"  
+when  
+  emp: Employ(annualExam=="excellent")  
+then  
+   System.out.println("execrule Excellent ... ");  
+  emp.setBonus(1000*1.0);  
+end  
+  
+rule"Good"  
+       ruleflow-group"bonus_salary"  
+when  
+  emp: Employ(annualExam=="good")  
+then  
+   System.out.println("execrule Good ... ");  
+  emp.setBonus(1000*0.9);  
+end  
+  
+rule"Common"  
+      ruleflow-group"bonus_salary"  
+when  
+  emp: Employ(annualExam=="common")  
+then  
+   System.out.println("execrule Common ... ");  
+  emp.setBonus(1000*0.6);  
+end  
+  
+rule"failing"  
+       ruleflow-group"bonus_salary"  
+when  
+  emp: Employ(annualExam=="failing")  
+then  
+   System.out.println("execrule failing ... ");  
+  emp.setBonus(1000*0.0);  
+end 

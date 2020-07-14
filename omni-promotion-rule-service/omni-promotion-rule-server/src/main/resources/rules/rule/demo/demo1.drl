@@ -1,0 +1,21 @@
+package rules;
+import  java.util.List;
+import  java.util.ArrayList;
+import com.purcotton.omni.promotion.rule.bean.Studentnput;
+import com.purcotton.omni.promotion.rule.bean.Input;
+import com.purcotton.omni.promotion.rule.bean.InputItem;
+import com.purcotton.omni.promotion.rule.bean.Output;
+import com.purcotton.omni.promotion.rule.bean.OutputItem;
+
+rule "rule1"
+    when
+      $in:Input();
+      $out:Output();
+      $item:InputItem(code=='0000') from $in.getInputList();
+      $outputItem:OutputItem(code=='0000') from $out.getOutputItems();
+    then
+       System.out.println("rule1执行了");
+       log.info("rule1规则执行了")
+       $outputItem.setPrice(5);
+    end
+

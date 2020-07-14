@@ -1,0 +1,18 @@
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+  activation-group "test1"
+  when
+      $p:Person(age>=1 )
+  then
+      $p.setDesc("rule1");
+      System.out.println("rule1执行成功");
+  end
+
+rule "rule2"
+  activation-group "test1"
+    when
+        $p:Person(age>=2)
+    then
+        $p.setDesc("rule2");
+        System.out.println("rule2执行成功");
+    end

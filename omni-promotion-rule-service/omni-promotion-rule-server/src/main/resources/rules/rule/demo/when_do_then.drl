@@ -1,0 +1,58 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Student;
+
+rule "rule1"
+    when
+        s:Student(name=='张三')
+        do [then01]
+        do [then02]
+        do [then03]
+    then
+       System.out.println("rule1 then 开始执行");
+    then[then01]
+       System.out.println("rule1 then01开始执行");
+    then[then02]
+       System.out.println("rule1 then02开始执行");
+    then[then03]
+       System.out.println("rule1 then03开始执行");
+end
+
+rule "rule2"
+    when
+        s:Student(name=='李四')
+        do [then01]
+        do [then02]
+        do [then03]
+   then
+       System.out.println("rule2 then 开始执行");
+       s.setName("李四0");
+       update(s);
+    then[then01]
+       System.out.println("rule2 then01开始执行");
+       s.setName("李四1");
+       update(s);
+    then[then02]
+       System.out.println("rule2 then02开始执行");
+       s.setName("李四2");
+       update(s);
+    then[then03]
+       System.out.println("rule2 then03开始执行");
+       s.setName("李四3");
+       update(s);
+end
+
+
+
+rule "rule3"
+    when
+        s:Student(name=='张三')
+        //不指定then,默认执行then条件
+    then
+       System.out.println("rule3 then 开始执行");
+    then[then01]
+       System.out.println("rule3 then01开始执行");
+    then[then02]
+       System.out.println("rule3 then02开始执行");
+    then[then03]
+       System.out.println("rule3 then03开始执行");
+end

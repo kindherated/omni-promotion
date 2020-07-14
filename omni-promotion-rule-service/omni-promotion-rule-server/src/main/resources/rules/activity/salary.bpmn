@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="salary" name="salary" tns:packageName="salary" >
+
+    <!-- nodes -->
+    <startEvent id="_jbpm-unique-55" name="Start"  isInterrupting="false">
+    </startEvent>
+    <inclusiveGateway id="_jbpm-unique-58" name="split" gatewayDirection="Diverging" >
+    </inclusiveGateway>
+    <businessRuleTask id="_jbpm-unique-61" name="award_punish" g:ruleFlowGroup="award_punish" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="_jbpm-unique-63" name="bonus_salary" g:ruleFlowGroup="bonus_salary" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="_jbpm-unique-65" name="basic_salary" g:ruleFlowGroup="basic_salary" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="_jbpm-unique-66" name="duty_salary" g:ruleFlowGroup="duty_salary" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <parallelGateway id="_jbpm-unique-67" name="join" gatewayDirection="Converging" >
+    </parallelGateway>
+    <businessRuleTask id="_jbpm-unique-69" name="sum_salary" g:ruleFlowGroup="sum_salary" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <endEvent id="_jbpm-unique-70" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="_jbpm-unique-55-_jbpm-unique-58" sourceRef="_jbpm-unique-55" targetRef="_jbpm-unique-58" />
+    <sequenceFlow id="_jbpm-unique-58-_jbpm-unique-61" sourceRef="_jbpm-unique-58" targetRef="_jbpm-unique-61" name="to_award" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-58-_jbpm-unique-63" sourceRef="_jbpm-unique-58" targetRef="_jbpm-unique-63" name="to_bonus" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-58-_jbpm-unique-65" sourceRef="_jbpm-unique-58" targetRef="_jbpm-unique-65" name="to_basic" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-58-_jbpm-unique-66" sourceRef="_jbpm-unique-58" targetRef="_jbpm-unique-66" name="to_duty" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_jbpm-unique-61-_jbpm-unique-67" sourceRef="_jbpm-unique-61" targetRef="_jbpm-unique-67" />
+    <sequenceFlow id="_jbpm-unique-63-_jbpm-unique-67" sourceRef="_jbpm-unique-63" targetRef="_jbpm-unique-67" />
+    <sequenceFlow id="_jbpm-unique-65-_jbpm-unique-67" sourceRef="_jbpm-unique-65" targetRef="_jbpm-unique-67" />
+    <sequenceFlow id="_jbpm-unique-66-_jbpm-unique-67" sourceRef="_jbpm-unique-66" targetRef="_jbpm-unique-67" />
+    <sequenceFlow id="_jbpm-unique-67-_jbpm-unique-69" sourceRef="_jbpm-unique-67" targetRef="_jbpm-unique-69" />
+    <sequenceFlow id="_jbpm-unique-69-_jbpm-unique-70" sourceRef="_jbpm-unique-69" targetRef="_jbpm-unique-70" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="salary" >
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-55" >
+        <dc:Bounds x="302" y="33" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-58" >
+        <dc:Bounds x="305" y="153" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-61" >
+        <dc:Bounds x="41" y="292" width="137" height="58" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-63" >
+        <dc:Bounds x="199" y="285" width="141" height="63" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-65" >
+        <dc:Bounds x="384" y="296" width="107" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-66" >
+        <dc:Bounds x="562" y="294" width="126" height="61" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-67" >
+        <dc:Bounds x="325" y="423" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-69" >
+        <dc:Bounds x="310" y="515" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-70" >
+        <dc:Bounds x="338" y="608" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-55-_jbpm-unique-58" >
+        <di:waypoint x="326" y="57" />
+        <di:waypoint x="329" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-58-_jbpm-unique-61" >
+        <di:waypoint x="329" y="177" />
+        <di:waypoint x="109" y="321" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-58-_jbpm-unique-63" >
+        <di:waypoint x="329" y="177" />
+        <di:waypoint x="269" y="316" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-58-_jbpm-unique-65" >
+        <di:waypoint x="329" y="177" />
+        <di:waypoint x="437" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-58-_jbpm-unique-66" >
+        <di:waypoint x="329" y="177" />
+        <di:waypoint x="625" y="324" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-61-_jbpm-unique-67" >
+        <di:waypoint x="109" y="321" />
+        <di:waypoint x="349" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-63-_jbpm-unique-67" >
+        <di:waypoint x="269" y="316" />
+        <di:waypoint x="349" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-65-_jbpm-unique-67" >
+        <di:waypoint x="437" y="320" />
+        <di:waypoint x="349" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-66-_jbpm-unique-67" >
+        <di:waypoint x="625" y="324" />
+        <di:waypoint x="349" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-67-_jbpm-unique-69" >
+        <di:waypoint x="349" y="447" />
+        <di:waypoint x="350" y="539" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-69-_jbpm-unique-70" >
+        <di:waypoint x="350" y="539" />
+        <di:waypoint x="362" y="632" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

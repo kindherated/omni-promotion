@@ -1,0 +1,50 @@
+package com.purcotton.engine;
+import Goods;
+//购买数量为1,3,5时为原价,不参与折扣
+rule "rule1"
+        salience 1   //优先级,数字越大，优先级越高
+	date-effective "2019-05-08"  //生效时间
+	date-expires "2020-05-10"    //失效时间
+	when
+         $p:Goods(amount == 1 || amount == 3 || amount == 5)
+        then
+	$p.setSummary(totalPrice($p.getPrice(),0.0));
+	$p.setDiscount(0.0);
+
+	retract($p);
+        //update($p);
+end
+//购买数量为2，4时，6折优惠
+rule "rule2"
+        salience 2
+	date-effective "2019-05-08"
+	date-expires "2020-05-10"
+	when
+         $p:Goods(amount == 2|| amount == 4)
+        then
+	$p.setSummary(totalPrice($p.getPrice(),0.6));
+	$p.setDiscount(0.6);
+	System.out.println("rule2");
+	retract($p);
+        //update($p);
+end
+//默认为原价
+rule "rule3"
+        salience -1
+	when
+         $p:Goods(amount>0)
+        then
+	$p.setSummary(totalPrice($p.getPrice(),0.0));
+        $p.setDiscount(0.0);
+	System.out.println("rule3");
+	retract($p);
+        //update($p)
+end
+
+function double totalPrice(double price,double discount){
+  if(discount>0){
+	return price*discount;
+  }else{
+	return price;
+  }
+}

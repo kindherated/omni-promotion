@@ -1,0 +1,11 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.School;
+import com.purcotton.omni.promotion.rule.bean.Student;
+rule "rule1"
+when
+   $p:School();
+   $s:Student(className=="一班") from $p.classNameList //过滤一班的学生
+then
+    System.out.println("rule from规则匹配成功$p:"+$s.getName());
+end
+

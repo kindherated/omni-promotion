@@ -1,0 +1,61 @@
+/**
+ 比较操作符
+ contains     比较操作符contains是用来检查一个Fact对象的某个字段（该字段要是一个Collection 或是一个Array类型的对象）是否包含一个指定的对象
+ not contains not contains是用来判断一个Fact对象的某个字段（Collection/Array类型）是不是包含一个指定的对象
+ memberOf     是用来判断某个Fact对象的某个字段是否在一个集合（Collection/Array）当中
+ not memberOf 判断Fact对象当中某个字段值是不是中某个集合（Collection/Array）当中，同时被比较的集合对象只能是一个变量（绑定变量或global 对象）
+ matches      正则表达式
+*/
+package com.purcotton.engine;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+  no-loop true
+  when
+     $p:Person(hobbies contains "唱歌1") //测试contains
+  then
+     $p.setDesc("contains匹配成功");
+     update($p);
+     System.out.println("rule1执行成功");
+end
+
+rule "rule2"
+  no-loop true
+  when
+     $p:Person(hobbies not contains "唱歌1") //测试not contains
+  then
+     $p.setDesc("not contains 匹配成功");
+     update($p);
+     System.out.println("rule2执行成功");
+end
+
+rule "rule3"
+  no-loop true
+  when
+     $p:Person("唱歌1" memberOf hobbies) //测试memberOf
+  then
+     $p.setDesc("memberOf 匹配成功");
+     update($p);
+     System.out.println("rule3执行成功");
+end
+
+
+rule "rule4"
+  no-loop true
+  when
+     $p:Person("唱歌1" not memberOf hobbies) //测试memberOf
+  then
+     $p.setDesc("not memberOf 匹配成功");
+     retract($p);
+     System.out.println("rule4执行成功");
+end
+
+rule "rule5"
+  no-loop true
+  enabled true
+  when
+     $p:Person(name matches "李.*") //测试正则表达式
+  then
+     $p.setDesc("matches匹配成功");
+     update($p);
+     System.out.println("rule5执行成功");
+end

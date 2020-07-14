@@ -1,0 +1,23 @@
+package com.purcotton.engine;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+   agenda-group "abc"
+   lock-on-active true
+   auto-focus true
+  when
+     $p: Person(name=="张三")
+  then
+     $p.setAge(50);
+     update($p);
+     System.out.println("rule1规则执行！");
+end
+rule "rule2"
+  agenda-group "abc"
+  lock-on-active true
+  when
+     $p: Person(age==50)
+  then
+     $p.setName("张三");
+     update($p);
+     System.out.println("rule2规则执行！");
+end

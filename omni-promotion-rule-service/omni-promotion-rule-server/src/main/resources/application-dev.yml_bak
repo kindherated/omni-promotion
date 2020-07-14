@@ -1,0 +1,29 @@
+#server:
+#  port: 8881
+##mybatis:
+##  type-aliases-package: com.purcotton.engine.bean
+##  mapper-locations: classpath:/mapper/*.xml
+#spring:
+#  application:
+#    name: rule-engine-service
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false&noAccessToProcedureBodies=true
+#    username: root
+#    password: root
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    initialSize: 5
+#    minIdle: 5
+#    maxActive: 50
+#    maxWait: 1000
+#    filters: stat,wall,log4j
+#logging:
+#  level:
+#    root: info
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:7001/eureka
+#  instance:
+#    instance-id: rule-engine-service:8881  #注册实例id
+#    prefer-ip-address: true                 #访问路径显示ip

@@ -1,0 +1,30 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Person;
+
+rule "function1"
+when
+then
+   function1();
+   System.out.println("函数function2的返回值："+function2());
+   function3("test");
+   System.out.println("函数function4的返回值："+function4("world"));
+end
+
+function void function1(){
+    System.out.println("输出一个无参无返回函数");
+}
+
+function String function2(){
+    System.out.println("输出一个无参有返回函数");
+    return "hello";
+}
+
+function void function3(String param){
+    System.out.println("输出一个有参无返回函数,参数为："+param);
+}
+
+function String function4(String param){
+    System.out.println("输出一个有参有返回函数：参数为："+param);
+    return "hello";
+}
+

@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.purcotton.omni.promotion.config.DataSourceConfiguration,\
+com.purcotton.omni.promotion.config.DroolsAutoConfiguration,\
+com.purcotton.omni.promotion.config.RedissonConfig
+

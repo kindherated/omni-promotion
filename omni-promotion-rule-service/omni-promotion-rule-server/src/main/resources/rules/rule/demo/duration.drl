@@ -1,0 +1,22 @@
+rule "rule1"
+  //建议使用cron表达式
+  timer (cron:0/3 * * * * ?)
+  when
+  then
+    System.out.println("rule1 thread id:"+Thread.currentThread().getId());
+  end
+
+rule "rule2"
+  timer (int:10s)
+  when
+  then
+    System.out.println("rule2 thread id:"+Thread.currentThread().getId());
+  end
+
+//time(int: a b) a:表示延迟执行时间 b表示轮询时间
+rule "rule3"
+  timer (int: 10s 5s)
+  when
+  then
+    System.out.println("rule3 thread id:"+Thread.currentThread().getId());
+  end

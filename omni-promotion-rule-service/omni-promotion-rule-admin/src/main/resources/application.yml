@@ -1,0 +1,15 @@
+server:
+  port: 8882
+spring:
+  application:
+    name: omni-promotion-rule-admin
+logging:
+  level:
+    root: info
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: omni-promotion-rule-admin:8882
+    prefer-ip-address: true

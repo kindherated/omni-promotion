@@ -1,0 +1,29 @@
+zuul:
+  SendErrorFilter:
+    error:
+      disable: true
+  routes:
+    mps-channel-admin:
+      path: /api/mps/**
+      serviceId: MPS-CHANNEL-ADMIN
+      stripPrefix: 'false'
+      url:
+  sensitive-headers:
+server:
+  session:
+    cookie:
+      name: GATESESSION
+    timeout: 86400
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: ssologin
+      clientSecret: winner123
+      accessTokenUri: http://oauth-test.pureh2b.com/sso/oauth/token
+      userAuthorizationUri: http://oauth-test.pureh2b.com/sso/oauth/authorize
+      scope: user_info
+    resource:
+      userInfoUri: http://oauth-test.pureh2b.com/sso/user/me
+

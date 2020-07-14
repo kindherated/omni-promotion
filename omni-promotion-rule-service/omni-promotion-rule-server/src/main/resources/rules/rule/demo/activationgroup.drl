@@ -1,0 +1,15 @@
+rule "rule1"
+  activation-group "test1"
+  salience 5
+  when
+  then
+    System.out.println("rule1 is execution!");
+  end
+
+rule "rule2"
+  activation-group "test1"
+  salience 10
+  when
+  then
+    System.out.println("rule2 is execution!");
+  end

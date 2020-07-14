@@ -1,0 +1,31 @@
+package com.purcotton;
+import import com.purcotton.omni.promotion.rule.bean.School;
+
+rule "rule1 not"
+when
+    not School()
+then
+   System.out.println("rule not测试,一定不在内存中");
+end
+
+rule "rule1 not exists"
+when
+    not (exists School())
+then
+   System.out.println("rule not exists测试,一定不在内存中");
+end
+
+rule "rule2 not not"
+when
+   not(not School())
+then
+    System.out.println("rule not not 测试,一定内存中");
+end
+
+rule "rule2  exists"
+when
+    exists School(className=='二班')
+then
+    System.out.println("rule2 exists测试,一定内存中");
+end
+

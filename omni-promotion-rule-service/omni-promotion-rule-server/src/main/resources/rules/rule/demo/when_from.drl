@@ -1,0 +1,19 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.School;
+import com.purcotton.omni.promotion.rule.bean.Student;
+//rule1和rule2的效果一样,只是书写方式不一样
+rule "rule1"
+when
+   $p:Student($ps:school); //取学生的所有学校的信息
+   $s:School(className=="二班") from $ps //过滤二班的学生
+then
+    System.out.println("rule1 from规则匹配成功$p:"+$p.getName());
+end
+
+rule "rule2"
+when
+   $p:Student();  //取学生的所有学校的信息
+   $s:School(className=="二班") from $p.school //过滤二班的学生
+then
+    System.out.println("rule2 from规则匹配成功$p:"+$p.getName());
+end

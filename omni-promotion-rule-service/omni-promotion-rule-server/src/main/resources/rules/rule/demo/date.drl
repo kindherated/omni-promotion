@@ -1,0 +1,8 @@
+rule "rule1"
+  date-expires "2020-05-19"
+  date-effective "2020-05-01"
+  when
+  eval(true);
+  then
+  System.out.println("rule1 is execution!");
+  end

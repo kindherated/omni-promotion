@@ -1,0 +1,22 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule rule1
+    agenda-group "abc"
+    auto-focus true
+    when
+       p:Person(age<30)
+    then
+        System.out.println("规则rule1 agenda-group 被触发");
+    end
+rule rule2
+    agenda-group "abc"
+    when
+           p:Person(age<40)
+    then
+        System.out.println("规则rule2 agenda-group 被触发");
+    end
+rule rule3
+    when
+    then
+        System.out.println("其他规则被触发");
+    end

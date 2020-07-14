@@ -1,0 +1,19 @@
+template header
+age
+className
+
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Student;
+
+template "template1"
+rule "rule template-@{row.rowNumber}"
+no-loop true
+when
+    $p:Student(age==@{age})
+then
+    $p.setClassName("@{className}");
+    System.out.println("rule templat-@{row.rowNumber}规则匹配成功");
+    update($p);
+end
+
+end template

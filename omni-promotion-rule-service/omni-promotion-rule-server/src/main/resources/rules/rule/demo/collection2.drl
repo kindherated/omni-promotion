@@ -1,0 +1,19 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Person;
+import java.util.*
+rule "rule1"
+    when
+        $p:Person();
+    then
+        System.out.println("rule1匹配到了list:"+$p.getHobbies().get(0)); //访问list元素
+           System.out.println("rule1匹配到了set:"+$p.getTestSet().iterator().next()); //访问set元素
+           System.out.println("rule1匹配到了map:"+$p.getTestMap().get("班级1")); //访问map元素
+   end
+
+//map条件判断
+rule "rule2"
+    when
+        $p:Person(testMap.get("班级1")==1);
+    then
+        System.out.println("rule2匹配到了map:"+$p.getTestMap().get("班级1")); //访问map元素
+end

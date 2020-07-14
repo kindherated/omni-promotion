@@ -1,0 +1,23 @@
+package com.ou;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+  //salience 1
+  no-loop true
+  when
+      $p:Person(name=="张三")
+  then
+      $p.setAge(50);
+      System.out.println("rule1 is execution!,新添加的用户："+$p.getName());
+  end
+
+rule "rule2"
+  //salience 2
+  when
+     eval(true)
+  then
+    Person p = new Person();
+    p.setName("张三");
+    p.setAge(20);
+    insert(p);
+    System.out.println("rule2 is execution!"+p);
+  end

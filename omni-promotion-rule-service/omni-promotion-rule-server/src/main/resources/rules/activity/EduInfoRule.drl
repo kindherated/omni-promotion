@@ -1,0 +1,20 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Employ;;
+   
+rule"Bachelor"  
+      ruleflow-group"basic_salary"  
+when  
+   emp:Employ(eduInfo =="bachelor");  
+then  
+   System.out.println("execrule Bachelor ... ");  
+   emp.setBasicSalary(1500);  
+end  
+  
+rule"Master"  
+      ruleflow-group"basic_salary"  
+when  
+   emp:Employ(eduInfo=="master")  
+then  
+   System.out.println("execrule Master ... ");  
+   emp.setBasicSalary(2500);  
+end 

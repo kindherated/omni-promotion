@@ -1,0 +1,44 @@
+/**
+ and和or测试
+*/
+package com.purcotton.engine;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+  no-loop true
+  when
+     $p:Person(age>0 && age<=18 ) //年龄在0-18岁之间的
+  then
+     $p.setDesc("未成年人");
+     update($p);
+     System.out.println("rule1执行成功");
+end
+
+rule "rule2"
+  no-loop true
+  when
+     $p:Person(age>18,age<=50) //年龄在18-50岁之间的
+  then
+     $p.setDesc("中青年人");
+     update($p);
+     System.out.println("rule2执行成功");
+end
+
+rule "rule3"
+  no-loop true
+  when
+     $p:Person(age>50, age<=70 ) //年龄在50-70岁之间的
+  then
+     $p.setDesc("老年人");
+     update($p);
+     System.out.println("rule3执行成功");
+end
+
+rule "rule4"
+  no-loop true
+  when
+     $p:Person(age>70 || name matches "李.*") //年龄在70岁以上的,名字是以李开头的
+  then
+     $p.setDesc("耄耋老人");
+     retract($p);
+     System.out.println("rule4执行成功");
+end

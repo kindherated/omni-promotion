@@ -1,0 +1,46 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Student;
+import java.util.ArrayList;
+//average 计算平均数
+//min 计算最小值
+//max 计算最大值
+//sum 计算总和
+//collectList 获取列表
+//collectSet  获取集合
+rule "rule1"
+   when
+        accumulate(Student($age:age),$min:min($age), $max:max($age), $avg:average($age), $sum:sum($age))
+   then
+       System.out.println("rule1规则匹配成功,最小值:"+$min+",最大值:"+$max+",平均值:"+$avg+",求和:"+$sum);
+   end
+
+rule "rule2"
+   when
+        $total : Number() from
+        //$total : Double() from
+        accumulate(Student(className=="一班",$age:age),
+            init(double count=0;),
+            action(
+                count += $age;
+                //System.out.println("action count:"+count);
+            ),
+            reverse(
+                count -= $age;
+                //System.out.println("reverse count:"+count);
+            ),
+            result(count)
+         )
+   then
+       System.out.println("rule2规则匹配成功,求和:"+$total);
+   end
+
+ rule "rule3"
+    when
+         $s:Student(name=="李四",age==19)
+    then
+        $s.setAge(20);
+ //       update($s);
+        System.out.println("rule3规则匹配成功,$s:"+$s);
+    end
+
+

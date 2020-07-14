@@ -1,0 +1,26 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Person;
+declare Student extends Person
+    stuNo:String
+end
+
+rule "rule1"
+when
+then
+   Student p  = new Student();
+   p.setName("测试");
+   p.setAge(20);
+   p.setStuNo("A00001");
+   insert(p);
+   System.out.println("rule1执行了");
+end
+
+
+
+rule "rule2"
+when
+  $p: Student(age == 20)
+then
+  System.out.println("rule2执行了,学生学号为："+$p.getStuNo());
+end
+

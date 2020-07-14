@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.purcotton.omni.promotion.rule.dao.PromotionActivityScopeMapper" >
+  <resultMap id="BaseResultMap" type="com.purcotton.omni.promotion.rule.server.model.PromotionActivityScope" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="tenant_id" property="tenantId" jdbcType="VARCHAR" />
+    <result column="seq_id" property="seqId" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="scope_type" property="scopeType" jdbcType="VARCHAR" />
+    <result column="activity_obj" property="activityObj" jdbcType="VARCHAR" />
+    <result column="user_tag" property="userTag" jdbcType="VARCHAR" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="level_no" property="levelNo" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tenant_id, seq_id, activity_id, scope_type, activity_obj, user_tag, customer_no, 
+    level_no, creator, create_time, update_by, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_promotion_activity_scope
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_promotion_activity_scope
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityScope" >
+    insert into t_promotion_activity_scope (id, tenant_id, seq_id, 
+      activity_id, scope_type, activity_obj, 
+      user_tag, customer_no, level_no, 
+      creator, create_time, update_by, 
+      update_time, is_deleted)
+    values (#{id,jdbcType=BIGINT}, #{tenantId,jdbcType=VARCHAR}, #{seqId,jdbcType=VARCHAR}, 
+      #{activityId,jdbcType=BIGINT}, #{scopeType,jdbcType=VARCHAR}, #{activityObj,jdbcType=VARCHAR}, 
+      #{userTag,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{levelNo,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityScope" >
+    insert into t_promotion_activity_scope
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tenantId != null" >
+        tenant_id,
+      </if>
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="scopeType != null" >
+        scope_type,
+      </if>
+      <if test="activityObj != null" >
+        activity_obj,
+      </if>
+      <if test="userTag != null" >
+        user_tag,
+      </if>
+      <if test="customerNo != null" >
+        customer_no,
+      </if>
+      <if test="levelNo != null" >
+        level_no,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="tenantId != null" >
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqId != null" >
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="scopeType != null" >
+        #{scopeType,jdbcType=VARCHAR},
+      </if>
+      <if test="activityObj != null" >
+        #{activityObj,jdbcType=VARCHAR},
+      </if>
+      <if test="userTag != null" >
+        #{userTag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="levelNo != null" >
+        #{levelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityScope" >
+    update t_promotion_activity_scope
+    <set >
+      <if test="tenantId != null" >
+        tenant_id = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqId != null" >
+        seq_id = #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="scopeType != null" >
+        scope_type = #{scopeType,jdbcType=VARCHAR},
+      </if>
+      <if test="activityObj != null" >
+        activity_obj = #{activityObj,jdbcType=VARCHAR},
+      </if>
+      <if test="userTag != null" >
+        user_tag = #{userTag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        customer_no = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="levelNo != null" >
+        level_no = #{levelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityScope" >
+    update t_promotion_activity_scope
+    set tenant_id = #{tenantId,jdbcType=VARCHAR},
+      seq_id = #{seqId,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      scope_type = #{scopeType,jdbcType=VARCHAR},
+      activity_obj = #{activityObj,jdbcType=VARCHAR},
+      user_tag = #{userTag,jdbcType=VARCHAR},
+      customer_no = #{customerNo,jdbcType=VARCHAR},
+      level_no = #{levelNo,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

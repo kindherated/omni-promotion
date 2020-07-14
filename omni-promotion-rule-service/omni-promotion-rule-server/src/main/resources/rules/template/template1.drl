@@ -1,0 +1,22 @@
+template header
+age
+className
+name
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Student;
+
+template "judge condition"
+rule "rule template-@{row.rowNumber}"
+no-loop true
+when
+    $p:Student(age==@{age})
+then
+    Student t = new Student();
+    t.setName("@{name}");
+    t.setAge(@{age});
+    t.setClassName("@{className}");
+    insert(t);
+    System.out.println("规则@{row.rowNumber}匹配成功!:名字："+t.getName());
+end
+
+end template

@@ -1,0 +1,11 @@
+package com.purcotton.engine;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+ //no-loop true
+  when
+     $p: Person(name=="张三")
+  then
+     $p.setAge(50);
+     update($p);
+     System.out.println("不设置noloop的效果");
+  end

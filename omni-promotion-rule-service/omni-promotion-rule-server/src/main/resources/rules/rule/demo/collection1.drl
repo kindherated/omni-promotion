@@ -1,0 +1,32 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Person;
+import java.util.*
+rule "rule1"
+    when
+        $s:Set();
+    then
+        System.out.println("rule1匹配到了set:"+$s.iterator().next()); //访问set元素
+end
+
+
+rule "rule2"
+    when
+        $m:Map() //判断是否是Map类型
+    then
+        System.out.println("rule2匹配到了map:"+$m.get("班级1")); //访问map元素
+end
+
+rule "rule3"
+    when
+        $l:List() //判断是否是List类型
+    then
+        System.out.println("rule3匹配到了list:"+$l.get(0));  //访问list元素
+end
+
+//map条件判断
+rule "rule4"
+    when
+        $m:Map(this.get("班级1")==1)
+    then
+        System.out.println("rule4匹配到了map:"+$m.get("班级1")); //访问map元素
+end

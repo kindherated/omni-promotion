@@ -1,0 +1,14 @@
+package com.purcotton;
+import function FunctionStatic.function1;
+import function FunctionStatic.function2;
+import function FunctionStatic.function3;
+import function FunctionStatic.function4;
+
+rule "function1"
+when
+then
+   function1();
+   System.out.println("函数function2的返回值："+function2());
+   function3("test");
+   System.out.println("函数function4的返回值："+function4("world"));
+end

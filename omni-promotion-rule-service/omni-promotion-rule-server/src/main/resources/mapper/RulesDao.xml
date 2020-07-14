@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.purcotton.omni.promotion.rule.dao.RulesDao">
+    <select id="getById" resultType="com.purcotton.omni.promotion.rule.bean.Rules" parameterType="java.lang.Integer">
+        SELECT * FROM drools_rule where id = #{id}
+    </select>
+
+    <select id="getRuleList" resultType="com.purcotton.omni.promotion.rule.bean.Rules" >
+        SELECT * FROM drools_rule order by create_time DESC
+    </select>
+
+    <insert id="setRule" parameterType="com.purcotton.omni.promotion.rule.bean.Rules" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO drools_rule(name,rulemapper) VALUE(#{name},#{rule})
+    </insert>
+
+
+    <insert id="updateRule" parameterType="com.purcotton.omni.promotion.rule.bean.Rules" >
+        UPDATE drools_rule SET rule= #{rule} AND name = #{name} WHERE id = #{id}
+    </insert>
+
+    <delete id="deleteRule" parameterType="java.lang.Integer">
+        UPDATE drools_rule SET visible=0,update_time=now() WHERE id = #{id}
+    </delete>
+</mapper>

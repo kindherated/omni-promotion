@@ -1,0 +1,18 @@
+package com.ou;
+import com.purcotton.omni.promotion.rule.bean.Person;
+rule "rule1"
+  when
+      $p:Person(name=="张三",age==50)
+  then
+      //delete($p)跟retract等效
+      //retract($p);
+      delete($p);
+      System.out.println("rule1 is execution!,修改后的结果："+$p.getName());
+  end
+//删除成功后,rule2不会执行
+rule "rule2"
+  when
+      $p:Person()
+  then
+      System.out.println("rule2 is execution!,删除后的结果："+$p.getName());
+  end

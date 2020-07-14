@@ -1,0 +1,34 @@
+package com.purcotton;
+global java.lang.Integer count;
+global java.util.List list;
+global RuleTableService ruleTableService
+rule "rule1"
+    when
+    then
+        System.out.println("before update count:"+count);
+        count=10;
+        System.out.println("after update count:"+count);
+end
+
+rule "rule2"
+    when
+    then
+        System.out.println("default count:"+count);
+        list.add("10");
+        list.add("20");
+        list.add("30");
+        System.out.println("rule2中的list的size():"+list.size());
+end
+
+rule "rule3"
+    when
+    then
+        System.out.println("rule中的list的size():"+list.size());
+end
+
+
+rule "rule4"
+   when
+   then
+    System.out.println("rule4规则执行"+ruleTableService.checkFlag());
+end

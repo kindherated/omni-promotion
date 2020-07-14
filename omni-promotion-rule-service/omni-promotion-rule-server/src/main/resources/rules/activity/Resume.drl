@@ -1,0 +1,20 @@
+package com.purcotton;
+import com.purcotton.omni.promotion.rule.bean.Employ;;
+
+rule"Technician"  
+       ruleflow-group"duty_salary"  
+when  
+   emp:Employ(resume=="tech")  
+then  
+   System.out.println("execrule Technician ... ");  
+  emp.setDutySalary(2000);  
+end  
+  
+rule"Manager"  
+      ruleflow-group"duty_salary"  
+when  
+   emp:Employ(awardPunish=="manager")  
+then  
+   System.out.println("execrule manager ... ");  
+   emp.setDutySalary(4500);  
+end  
