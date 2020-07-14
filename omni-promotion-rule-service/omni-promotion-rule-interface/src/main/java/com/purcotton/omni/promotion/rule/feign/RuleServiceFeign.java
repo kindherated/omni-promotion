@@ -1,4 +1,4 @@
-package com.purcotton.omni.promotion.rule.service;
+package com.purcotton.omni.promotion.rule.feign;
 
 import com.purcotton.omni.promotion.rule.exception.JsonResponse;
 import org.springframework.cloud.netflix.feign.FeignClient;

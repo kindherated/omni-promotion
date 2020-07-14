@@ -2,7 +2,7 @@ package com.purcotton.omni.promotion.rule.server.model;
 
 import java.util.Date;
 
-public class PromotionActivityConditon {
+public class PromotionActivityCondition {
     private Long id;
 
     private String seqId;

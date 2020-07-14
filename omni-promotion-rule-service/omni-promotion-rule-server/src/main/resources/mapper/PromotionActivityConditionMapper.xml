@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.purcotton.omni.promotion.rule.dao.PromotionActivityConditonMapper" >
-  <resultMap id="BaseResultMap" type="com.purcotton.omni.promotion.rule.server.model.PromotionActivityConditon" >
+<mapper namespace="com.purcotton.omni.promotion.rule.dao.PromotionActivityConditionMapper" >
+  <resultMap id="BaseResultMap" type="com.purcotton.omni.promotion.rule.server.model.PromotionActivityCondition" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="seq_id" property="seqId" jdbcType="VARCHAR" />
     <result column="tenant_id" property="tenantId" jdbcType="VARCHAR" />
@@ -23,15 +23,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from t_promotion_activity_conditon
+    from t_promotion_activity_condition
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from t_promotion_activity_conditon
+    delete from t_promotion_activity_condition
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityConditon" >
-    insert into t_promotion_activity_conditon (id, seq_id, tenant_id, 
+  <insert id="insert" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityCondition" >
+    insert into t_promotion_activity_condition (id, seq_id, tenant_id, 
       activity_id, activity_type, condition_type, 
       operator, operator_value, creator, 
       create_time, update_by, update_time, 
@@ -42,8 +42,8 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{isDeleted,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityConditon" >
-    insert into t_promotion_activity_conditon
+  <insert id="insertSelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityCondition" >
+    insert into t_promotion_activity_condition
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -127,8 +127,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityConditon" >
-    update t_promotion_activity_conditon
+  <update id="updateByPrimaryKeySelective" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityCondition" >
+    update t_promotion_activity_condition
     <set >
       <if test="seqId != null" >
         seq_id = #{seqId,jdbcType=VARCHAR},
@@ -169,8 +169,8 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityConditon" >
-    update t_promotion_activity_conditon
+  <update id="updateByPrimaryKey" parameterType="com.purcotton.omni.promotion.rule.server.model.PromotionActivityCondition" >
+    update t_promotion_activity_condition
     set seq_id = #{seqId,jdbcType=VARCHAR},
       tenant_id = #{tenantId,jdbcType=VARCHAR},
       activity_id = #{activityId,jdbcType=VARCHAR},

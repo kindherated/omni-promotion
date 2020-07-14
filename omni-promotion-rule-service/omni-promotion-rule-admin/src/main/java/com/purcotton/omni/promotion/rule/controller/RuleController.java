@@ -1,7 +1,7 @@
 package com.purcotton.omni.promotion.rule.controller;
 
 import com.purcotton.omni.promotion.rule.exception.JsonResponse;
-import com.purcotton.omni.promotion.rule.service.RuleServiceFeign;
+import com.purcotton.omni.promotion.rule.feign.RuleServiceFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
