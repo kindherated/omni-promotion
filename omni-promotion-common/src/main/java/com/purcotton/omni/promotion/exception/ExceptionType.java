@@ -1,4 +1,4 @@
-package com.purcotton.omni.promotion.rule.bean;
+package com.purcotton.omni.promotion.exception;
 
 /**
  * Enum 响应类型

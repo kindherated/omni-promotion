@@ -1,4 +1,4 @@
-package com.purcotton.omni.promotion.rule.exception;
+package com.purcotton.omni.promotion.exception;
 
 
 import lombok.AllArgsConstructor;

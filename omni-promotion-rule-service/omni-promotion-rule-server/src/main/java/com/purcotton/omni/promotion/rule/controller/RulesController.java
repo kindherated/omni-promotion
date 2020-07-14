@@ -2,9 +2,9 @@ package com.purcotton.omni.promotion.rule.controller;
 
 
 import com.google.gson.Gson;
+import com.purcotton.omni.promotion.exception.JsonResponse;
 import com.purcotton.omni.promotion.rule.bean.Person;
 import com.purcotton.omni.promotion.rule.dao.RulesDao;
-import com.purcotton.omni.promotion.rule.exception.JsonResponse;
 import com.purcotton.omni.promotion.rule.service.RuleTableService;
 import com.purcotton.omni.promotion.rule.service.RulesService;
 import io.swagger.annotations.ApiImplicitParam;

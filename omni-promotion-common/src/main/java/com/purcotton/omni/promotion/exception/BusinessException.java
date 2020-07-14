@@ -1,8 +1,7 @@
 
-package com.purcotton.omni.promotion.rule.exception;
+package com.purcotton.omni.promotion.exception;
 
 
-import com.purcotton.omni.promotion.rule.bean.ExceptionType;
 
 /**
  * 业务异常

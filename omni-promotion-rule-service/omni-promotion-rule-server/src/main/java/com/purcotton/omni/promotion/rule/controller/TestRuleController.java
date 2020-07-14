@@ -1,5 +1,5 @@
 package com.purcotton.omni.promotion.rule.controller;
-import com.purcotton.omni.promotion.rule.exception.JsonResponse;
+import com.purcotton.omni.promotion.exception.JsonResponse;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

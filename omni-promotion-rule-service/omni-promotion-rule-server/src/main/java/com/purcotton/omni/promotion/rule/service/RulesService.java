@@ -1,6 +1,5 @@
 package com.purcotton.omni.promotion.rule.service;
 import com.google.gson.Gson;
-import com.purcotton.omni.promotion.rule.bean.ExceptionType;
 import com.purcotton.omni.promotion.rule.bean.Goods;
 import com.purcotton.omni.promotion.rule.bean.Person;
 import com.purcotton.omni.promotion.rule.bean.Rules;
