@@ -1,6 +1,6 @@
 package com.purcotton.omni.promotion.rule.feign;
 
-import com.purcotton.omni.promotion.rule.exception.JsonResponse;
+import com.purcotton.omni.promotion.exception.JsonResponse;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
